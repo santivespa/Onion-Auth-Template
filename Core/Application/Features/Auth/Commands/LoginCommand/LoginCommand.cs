@@ -19,7 +19,6 @@ namespace Application.Features.Auth.Commands.LoginCommand
         public string EmailOrUserName { get; set; }
         public string Password { get; set; }
 
-
         public class LoginCommandHandler : IRequestHandler<LoginCommand, Response<UserDTO>>
         {
             private readonly UserManager<User> _userManager;
@@ -67,7 +66,6 @@ namespace Application.Features.Auth.Commands.LoginCommand
             private Response<UserDTO> InvalidLoginAttempt()
             {
                 return new Response<UserDTO>("Invalid Login Attempt", false);
-
             }
         }
     }

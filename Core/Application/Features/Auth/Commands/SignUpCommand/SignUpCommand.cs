@@ -20,7 +20,6 @@ namespace Application.Features.Auth.Commands.SignUpCommand
         public string UserName { get; set; }
         public string PhoneNumber { get; set; }
 
-
         public class SignInCommandHandler : IRequestHandler<SignUpCommand, Response<UserDTO>>
         {
 

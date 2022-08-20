@@ -16,26 +16,20 @@ namespace Application.Features.Notes.Commands.UpdateNoteCommand
     public class UpdateNoteCommand : IRequest<Response<string>>
     {
         public string? UserID { get; set; }
-
         public string? NoteID { get; set; }
-
         public string Title { get; set; }
-
         public string Description { get; set; }
-
 
         public class UpdateNoteCommandHandler : IRequestHandler<UpdateNoteCommand, Response<string>>
         {
 
             private readonly UserManager<User> _userManager;
             private readonly IRepositoryAsync<Note> _repositoryAsync;
-            private readonly IMapper _mapper;
 
-            public UpdateNoteCommandHandler(UserManager<User> userManager, IRepositoryAsync<Note> repositoryAsync, IMapper mapper)
+            public UpdateNoteCommandHandler(UserManager<User> userManager, IRepositoryAsync<Note> repositoryAsync)
             {
                 _userManager = userManager;
                 _repositoryAsync = repositoryAsync;
-                _mapper = mapper;
             }
 
             public async Task<Response<string>> Handle(UpdateNoteCommand request, CancellationToken cancellationToken)

@@ -16,7 +16,6 @@ namespace Application.Features.Notes.Commands.DeleteNoteCommand
     public class DeleteNoteCommand : IRequest<Response<string>>
     {
         public string? UserID { get; set; }
-
         public string NoteID { get; set; }
 
         public class DeleteNoteCommandHandler : IRequestHandler<DeleteNoteCommand, Response<string>>

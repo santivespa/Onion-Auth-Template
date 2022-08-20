@@ -16,7 +16,6 @@ namespace Application.Features.Notes.Queries.GetNoteQuery
     public class GetNoteQuery : IRequest<Response<NoteDTO>>
     {
         public string UserID { get; set; }
-
         public string NoteID { get; set; }
 
         public class GetNoteQueryHandler : IRequestHandler<GetNoteQuery, Response<NoteDTO>>

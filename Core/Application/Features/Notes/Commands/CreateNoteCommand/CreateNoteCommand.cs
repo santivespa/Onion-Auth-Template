@@ -16,9 +16,7 @@ namespace Application.Features.Notes.Commands.CreateNoteCommand
     public class CreateNoteCommand : IRequest<Response<string>>
     {
         public string? UserID { get; set; }
-
         public string Title { get; set; }
-
         public string Description { get; set; }
 
         public class CreateNoteCommandHandler : IRequestHandler<CreateNoteCommand, Response<string>>
