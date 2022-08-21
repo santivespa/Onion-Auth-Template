@@ -24,6 +24,9 @@ namespace Persistence.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Note>().Property(x => x.ID).HasDefaultValueSql("NEWID()");
+
+
         }
 
         public DbSet<Note> Notes { get; set; }

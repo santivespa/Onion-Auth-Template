@@ -44,7 +44,6 @@ namespace Application.Features.Notes.Commands.CreateNoteCommand
 
                 var note = _mapper.Map<Note>(request);
 
-                note.ID = Guid.NewGuid().ToString();
                 note.User = user;
 
                 await _repositoryAsync.AddAsync(note);
