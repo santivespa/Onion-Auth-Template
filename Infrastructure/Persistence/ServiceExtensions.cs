@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Data;
 using Persistence.Repository;
+using Application;
 
 namespace Persistence
 {
@@ -15,18 +16,17 @@ namespace Persistence
         {
 
             //Add context
-            services.AddDbContext<MainContext>( options =>
-                options.UseSqlServer(configuration.GetConnectionString("LocalConnection"))
-            );
+            services.AddDbContext<MainContext>(options =>
+                  options.UseSqlServer(configuration.GetConnectionString("LocalConnection"))
+              );
 
             //Add Repository
-            services.AddTransient(typeof(IRepositoryAsync<>), typeof(MainContextRepositoryAsync<>));
+            services.AddTransient(typeof(IRepositoryAsync<>), typeof(ContextRepositoryAsync<>));
 
 
             //Add Identity
             services.AddDefaultIdentity<User>(options =>
             {
-
                 options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
@@ -44,6 +44,7 @@ namespace Persistence
             })
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<MainContext>(); ;
+
         }
     }
 }

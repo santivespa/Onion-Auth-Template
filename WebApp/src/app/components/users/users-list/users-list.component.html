@@ -1,0 +1,46 @@
+<div class="body-container">
+
+    <div class="header-container">
+        <h1>Users</h1>
+        <div>
+            <button matRipple class="mb btn-blue" [routerLink]="'/invitations'">Invitations</button>
+        </div>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <th>Full Name</th>
+                <th>Email</th>
+                <!-- <th></th> -->
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users()">
+                    <td>
+                        {{ user.fullName }}
+                    </td>
+                 
+                    <td>
+                        {{ user.email }}
+                    </td>
+                 
+                    <!-- <td class="d-flex justify-content-end">
+                        <button mat-icon-button class="table-btn-actions" [matMenuTriggerFor]="menu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item [routerLink]="'/project/'+project.id">Details</button>
+                            <button mat-menu-item (click)="editProject(project.id)">Edit</button>
+                            <button mat-menu-item (click)="deleteProject(project.id)">Delete</button>
+                        </mat-menu>
+
+                    </td> -->
+                </tr>
+            </tbody>
+        </table> 
+    </div>
+</div>
+
+<div *ngIf="loadingUsers()" class="d-flex p-4 justify-content-center">
+    <mat-spinner [diameter]="40"></mat-spinner>
+</div> 

@@ -1,0 +1,21 @@
+<mat-toolbar>
+    <div class="container d-flex  align-items-center">
+     
+          <span>My App</span>
+          <span class="example-spacer"></span>
+         
+      
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>account_circle</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+           
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>logout</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+
+    </div>
+  </mat-toolbar>
+  

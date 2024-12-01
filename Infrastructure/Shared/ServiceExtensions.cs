@@ -1,5 +1,8 @@
-﻿using Application.Interfaces;
+﻿
+
+using Application.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -33,6 +36,16 @@ namespace Shared
                     ClockSkew = TimeSpan.Zero
                 };
             });
+
+            // Email sender
+            services.AddTransient<IEmailSender, EmailSender>(i =>
+                new EmailSender(
+                    configuration["EmailSender:Host"],
+                    configuration.GetValue<int>("EmailSender:Port"),
+                    configuration.GetValue<bool>("EmailSender:EnableSSL"),
+                    configuration["EmailSender:UserName"],
+                    configuration["EmailSender:Password"]
+                ));
         }
     }
 }

@@ -1,0 +1,10 @@
+<div class="d-flex flex-column align-items-center auth-container c-card">
+  <h1 class="title">Login</h1>
+  <form [formGroup]="form" class="mt-3 d-flex flex-column" (ngSubmit)="onSubmit()">
+    <input type="email" placeholder="Email" formControlName="email"  class="mb-3"/>
+    <input type="password" placeholder="Password" formControlName="password" class="mb-3">
+    <button matRipple type="submit" class="mb btn-blue" [disabled]="loading || !form.valid">Login</button>
+  </form>
+  <a class="mt-3" routerLink="/auth/sign-up">Sign Up</a>
+  <a class="mt-1" routerLink="/auth/recover-password">Forgot my Password</a> 
+</div>

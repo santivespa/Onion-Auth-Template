@@ -22,10 +22,11 @@ namespace Shared.Services
             _configuration = configuration;
         }
 
-        public string GenerateToken(User user)
+        public string GenerateToken(User user, IList<string> userRoles)
         {
             List<Claim> claims = new List<Claim>();
             claims.Add(new Claim("UserID", user.Id.ToString()));
+            claims.AddRange(GetRoleClaims(userRoles));
             var tokenSeed = _configuration["AppSettings:JWT_Secret"].ToString();
 
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -42,6 +43,15 @@ namespace Shared.Services
             var securityToken = tokenHandler.CreateToken(tokenDescriptor);
             var token = tokenHandler.WriteToken(securityToken);
             return token;
+        }
+
+        private static IEnumerable<Claim> GetRoleClaims(IList<string> userRoles)
+        {
+            var _options = new IdentityOptions();
+            foreach (var s in userRoles)
+            {
+                yield return new Claim(_options.ClaimsIdentity.RoleClaimType, s);
+            }
         }
     }
 }

@@ -1,0 +1,14 @@
+.app-container, .checking-auth-container {
+    height: 100vh;
+    display: flex;
+}
+
+:host {
+    height: 100%;
+    display: block;
+}
+
+.checking-auth-container {
+    justify-content: center;
+    align-items: center;
+}

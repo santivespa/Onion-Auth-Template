@@ -1,0 +1,10 @@
+    <h2 mat-dialog-title>{{title()}}</h2>
+    <mat-dialog-content>{{subTitle()}}</mat-dialog-content>
+
+    <mat-dialog-actions>
+      <button matRipple class="mb btn-gray" type="button" (click)="onConfirm(false)">Cancel</button>
+      <button matRipple class="mb btn-red" type="button" (click)="onConfirm(true)">
+            Confirm
+      </button>
+    </mat-dialog-actions>
+  

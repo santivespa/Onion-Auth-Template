@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
-using Application.Wrappers;
-using Application.DTOs;
-using Domain;
-using Microsoft.AspNetCore.Identity;
-using AutoMapper;
+﻿using Application.DTOs;
 using Application.Interfaces;
+using Application.Wrappers;
+using AutoMapper;
+using Domain;
+using MediatR;
+using Microsoft.AspNetCore.Identity;
 
 namespace Application.Features.Auth.Commands.LoginCommand
 {
     public class LoginCommand : IRequest<Response<UserDTO>>
     {
-
-        public string EmailOrUserName { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
 
         public class LoginCommandHandler : IRequestHandler<LoginCommand, Response<UserDTO>>
@@ -26,7 +20,11 @@ namespace Application.Features.Auth.Commands.LoginCommand
             private readonly IMapper _mapper;
             private readonly ITokenHelper _tokenHelper;
 
-            public LoginCommandHandler(SignInManager<User> signInManager, UserManager<User> userManager, IMapper mapper, ITokenHelper tokenHelper)
+            public LoginCommandHandler(
+                SignInManager<User> signInManager, 
+                UserManager<User> userManager,
+                IMapper mapper,
+                ITokenHelper tokenHelper)
             {
                 _signInManager = signInManager;
                 _userManager = userManager;
@@ -36,25 +34,19 @@ namespace Application.Features.Auth.Commands.LoginCommand
 
             public async Task<Response<UserDTO>> Handle(LoginCommand request, CancellationToken cancellationToken)
             {
-
-                var user  = await _userManager.FindByEmailAsync(request.EmailOrUserName);
-
-                if(user == null)
-                {
-                    user = await _userManager.FindByNameAsync(request.EmailOrUserName);
-                }
-
+                var user  = await _userManager.FindByEmailAsync(request.Email);
                 if (user == null)
                 {
                     return InvalidLoginAttempt();
                 }
 
                 var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
-
                 if (result.Succeeded)
                 {
                     var userDTO = _mapper.Map<UserDTO>(user);
-                    userDTO.Token = _tokenHelper.GenerateToken(user);
+                    var userRoles = await _userManager.GetRolesAsync(user);
+
+                    userDTO.Token = _tokenHelper.GenerateToken(user, userRoles);
                     return new Response<UserDTO>(userDTO);
                 }
                 else

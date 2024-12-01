@@ -1,0 +1,422 @@
+/* You can add global styles to this file, and also import other style files */
+@import './settings';
+
+html,
+body {
+    height: 100%;
+    margin: 0px;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+app-root {
+    display: block;
+    height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0px !important;
+}
+
+
+input:not([type="checkbox"]), select {
+
+    border: 2px solid #dadce0;
+    border-radius: 2px;
+    padding: 0px 8px;
+    width: 100%;
+    outline: none;
+    height: 28px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+
+    &:focus {
+        border: 2px solid #007ced;
+    }
+
+    &:hover:not(:focus):not(:disabled) {
+        border: 2px solid #bcbfc4;
+    }
+}
+
+.c-checkbox {
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    outline: none !important;
+    height: 16px;
+    width: 16px;
+    border: 2px solid #dadce0;
+    border-radius: 2px;
+}
+
+.c-checkbox-label {
+    // width: 100%;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+
+//btns
+$red: #dc3545;
+$my-gray: #d6d6d6;
+$orange: #f44336;
+$blue: #0078d4;
+$violet: #51007a;
+$dark: #313234;
+$green: #198754;
+
+//new buttons 
+.mb {
+    outline: transparent;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0px 14px;
+    text-decoration: none;
+    text-align: center;
+    height: 28px;
+
+    line-height: 12px;
+    color: rgb(255, 255, 255);
+    user-select: none;
+    font-family: 'Nunito', sans-serif !important;
+
+    &:disabled {
+        cursor: default;
+        background-color:
+            #c9c9c9 !important;
+        color: #636363 !important;
+        ;
+        border: 1px solid #c9c9c9 !important;
+    }
+
+    svg {
+        width: 0.68em;
+        margin-right: 4px;
+    }
+}
+
+// btn blue
+.mb.btn-blue {
+    border: 1px solid $blue;
+    background-color: $blue;
+
+    &:hover:not(:disabled) {
+        background-color: darken($color: $blue, $amount: 5);
+        border-color: darken($color: $blue, $amount: 5);
+    }
+}
+
+.mb.btn-outline-blue {
+    border: 1px solid $blue;
+    background-color: white;
+    color: $blue;
+
+    &:hover:not(:disabled) {
+        color: darken($color: $blue, $amount: 5);
+        border-color: darken($color: $blue, $amount: 5);
+    }
+}
+
+.btn-icon-blue {
+    background-color: lighten($color: #0078d4, $amount: 50) !important;
+
+    width: 36px;
+    height: 36px;
+
+    &:hover {
+        background-color: lighten($color: #0078d4, $amount: 46) !important;
+    }
+}
+
+// btn orange
+.mb.btn-orange {
+    border: 1px solid $orange;
+    background-color: $orange;
+
+    &:hover:not(:disabled) {
+        background-color: darken($color: $orange, $amount: 5);
+        border-color: darken($color: $orange, $amount: 5);
+
+    }
+}
+
+.mb.btn-outline-orange {
+    border: 1px solid $orange;
+    background-color: white;
+    color: $orange;
+
+    &:hover:not(:disabled) {
+        color: darken($color: $orange, $amount: 5);
+        border-color: darken($color: $orange, $amount: 5);
+    }
+}
+
+.btn-icon-orange {
+    background-color: lighten($color: $orange, $amount: 50) !important;
+    width: 36px;
+    height: 36px;
+
+    &:hover {
+        background-color: lighten($color: $orange, $amount: 46) !important;
+    }
+}
+
+// btn red
+.mb.btn-red {
+    border: 1px solid $red;
+    background-color: $red;
+
+    &:hover:not(:disabled) {
+        background-color: darken($color: $red, $amount: 5);
+        border-color: darken($color: $red, $amount: 5);
+    }
+}
+
+.mb.btn-outline-red {
+    border: 1px solid $red;
+    background-color: white;
+    color: $red;
+
+    &:hover:not(:disabled) {
+        color: darken($color: $red, $amount: 5);
+        border-color: darken($color: $red, $amount: 5);
+    }
+}
+
+.btn-icon-red {
+    background-color: lighten($color: $red, $amount: 50) !important;
+    width: 36px;
+    height: 36px;
+
+    &:hover {
+        background-color: lighten($color: $red, $amount: 46) !important;
+    }
+}
+
+// btn violet
+.mb.btn-violet {
+    border: 1px solid $violet;
+    background-color: $violet;
+
+    &:hover:not(:disabled) {
+        background-color: darken($color: $violet, $amount: 5);
+        border-color: darken($color: $violet, $amount: 5);
+    }
+}
+
+.mb.btn-outline-red {
+    border: 1px solid $violet;
+    background-color: white;
+    color: $violet;
+
+    &:hover:not(:disabled) {
+        color: darken($color: $violet, $amount: 5);
+        border-color: darken($color: $violet, $amount: 5);
+    }
+}
+
+.btn-icon-violet {
+    background-color: lighten($color: $violet, $amount: 69) !important;
+
+    width: 36px;
+    height: 36px;
+
+    &:hover {
+        background-color: lighten($color: $violet, $amount: 64) !important;
+    }
+}
+
+.mb.btn-text-rose {
+    // border: 1px solid $violet;
+    background-color: transparent;
+    color: #0078d4;
+
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    outline: none;
+
+    &:hover:not(:disabled) {
+        color: darken($color: #0078d4, $amount: 5);
+        // border-color: darken($color: $violet, $amount: 5);
+    }
+}
+
+// btn green
+.mb.btn-green {
+    border: 1px solid $green;
+    background-color: $green;
+
+    &:hover:not(:disabled) {
+        background-color: darken($color: $green, $amount: 5);
+        border-color: darken($color: $green, $amount: 5);
+    }
+}
+
+.mb.btn-outline-green {
+    border: 1px solid $green;
+    background-color: white;
+    color: $green;
+
+    &:hover:not(:disabled) {
+        color: darken($color: $green, $amount: 5);
+        border-color: darken($color: $green, $amount: 5);
+    }
+}
+
+.btn-icon-green {
+    background-color: lighten($color: $green, $amount: 69) !important;
+
+    width: 36px;
+    height: 36px;
+
+    &:hover {
+        background-color: lighten($color: $green, $amount: 64) !important;
+    }
+}
+
+// btn gray
+.mb.btn-gray {
+    border: 1px solid $my-gray;
+    background-color: $my-gray;
+    color: black;
+
+    &:hover:not(:disabled) {
+        background-color: darken($color: $my-gray, $amount: 5);
+        border-color: darken($color: $my-gray, $amount: 5);
+    }
+}
+
+.mb.btn-outline-gray {
+    border: 1px solid $my-gray;
+    background-color: white;
+    color: $green;
+
+    &:hover:not(:disabled) {
+        color: darken($color: $my-gray, $amount: 5);
+        border-color: darken($color: $my-gray, $amount: 5);
+    }
+}
+
+.btn-icon-gray {
+    background-color: lighten($color: $my-gray, $amount: 69) !important;
+    width: 36px;
+    height: 36px;
+
+    &:hover {
+        background-color: lighten($color: $my-gray, $amount: 64) !important;
+    }
+}
+
+// btn dark
+.mb.btn-dark {
+    border: 1px solid $dark;
+    background-color: $dark;
+    color: white;
+
+    &:hover:not(:disabled) {
+        background-color: darken($color: $dark, $amount: 5);
+        border-color: darken($color: $dark, $amount: 5);
+    }
+}
+
+.mb.btn-outline-dark {
+    border: 1px solid $dark;
+    background-color: white;
+    color: $dark;
+
+    &:hover:not(:disabled) {
+        color: darken($color: $dark, $amount: 5);
+        border-color: darken($color: $dark, $amount: 5);
+    }
+}
+
+.btn-icon-dark {
+    background-color: lighten($color: $dark, $amount: 69) !important;
+    width: 36px;
+    height: 36px;
+
+    &:hover {
+        background-color: lighten($color: $dark, $amount: 64) !important;
+    }
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+
+.body-container {
+    height: 100vh;
+    padding: 16px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+
+    h1 {
+        font-size: 24px;
+        line-height: 24px;
+    }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.input-error {
+    font-size: 14px;
+    color: $danger;
+}
+
+
+mat-dialog-actions button:last-of-type {
+    margin-left: 8px;
+}
+
+.mdc-dialog__surface {
+    border-radius: 6px !important; 
+  }
+
+th {
+    font-weight: 500;
+}
+
+table {
+    width: 100%;
+}
+
+ .table-btn-actions{
+    width: 26px !important;
+    height: 26px !important;
+    padding: 0px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+ }

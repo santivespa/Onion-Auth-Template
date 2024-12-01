@@ -1,0 +1,13 @@
+<!-- <navbar></navbar> -->
+<div class="app-container" *ngIf="!checkingAuth()">
+    <sidebar></sidebar>
+    <div class="flex-1 d-flex">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+
+
+<div *ngIf="checkingAuth()" class="checking-auth-container">
+    <mat-spinner [diameter]="40"></mat-spinner>
+</div>

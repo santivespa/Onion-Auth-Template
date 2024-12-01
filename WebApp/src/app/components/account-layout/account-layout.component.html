@@ -1,0 +1,16 @@
+
+<div class="account-header">
+  <h1 class="title">Account Settings</h1>
+</div>
+
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" (selectedTabChange)="onTabChange($event)" [(selectedIndex)]="selectedIndex">
+    <mat-tab label="Account"></mat-tab>
+    <mat-tab label="Change Password"></mat-tab>
+    <!-- <mat-tab label="Preferences"></mat-tab> -->
+  </mat-tab-group>
+
+  <div class="account-container">
+    <div class="account-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>

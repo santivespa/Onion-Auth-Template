@@ -18,6 +18,12 @@ namespace Application.Wrappers
             Succeeded = succeeded;
         }
 
+        public Response(string message, bool succeeded = false)
+        {
+            Succeeded = succeeded;
+            Message = message;
+        }
+
         public Response(T data, string? message = null)
         {
             Succeeded = true;
@@ -25,25 +31,11 @@ namespace Application.Wrappers
             Data = data;
         }
 
-        public Response(string message)
-        {
-            this.Message = message;
-            this.Succeeded = true;
-        }
-
-        public Response(string message, bool succeeded = false)
-        {
-            Succeeded = succeeded;
-            Message = message;
-        }
-
         public Response(List<string> errors)
         {
             this.Errors = errors;
             this.Succeeded = false;
         }
-
-     
 
         public bool Succeeded { get; set; }
         public string? Message { get; set; }
